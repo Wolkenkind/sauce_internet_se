@@ -13,9 +13,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CheckboxesTest extends BaseTest {
 
+    private static final String LINK_TEXT = "Checkboxes";
+
     @BeforeEach
     public void navigateAndWait() {
-        driver.findElement(By.linkText("Checkboxes")).click();
+        driver.findElement(By.linkText(LINK_TEXT)).click();
         // Wait for checkboxes page to load
         wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(CheckboxesPage.CHECKBOXES_CSS)));
     }
