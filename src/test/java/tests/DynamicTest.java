@@ -1,6 +1,6 @@
 package tests;
 
-import base.BaseTest;
+import tests.common.BaseTest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;

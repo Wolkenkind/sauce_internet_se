@@ -1,6 +1,6 @@
 package tests;
 
-import base.BaseTest;
+import tests.common.BaseTest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;

@@ -4,14 +4,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import pages.common.BasePage;
 
 import java.util.List;
 
-public class CheckboxesPage {
+public class CheckboxesPage extends BasePage {
 
     public static final String CHECKBOXES_CSS = "#checkboxes input[type='checkbox']";
-
-    private WebDriver webDriver;
 
     /*@FindBy(xpath = "//form[@id='checkboxes']/input[@type='checkbox'][1]")
     private WebElement checkbox1;
@@ -23,8 +22,8 @@ public class CheckboxesPage {
     private List<WebElement> checkboxes;
 
     public CheckboxesPage(WebDriver webDriver) {
-        this.webDriver = webDriver;
-        PageFactory.initElements(webDriver, this);
+        super(webDriver);
+        PageFactory.initElements(this.driver, this);
     }
 
     public void setCheckbox1(boolean value) {

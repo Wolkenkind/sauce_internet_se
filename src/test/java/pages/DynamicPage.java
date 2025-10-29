@@ -7,26 +7,21 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import pages.common.WaitingPage;
 
-import java.time.Duration;
 import java.util.Optional;
 
-public class DynamicPage {
+public class DynamicPage extends WaitingPage {
 
     private static final String BUTTON_CSS = "#start button";
     private static final String ELEMENT_AFTER_CLICK_ID = "loading";
     private static final String FINISH_ELEMENT_ID = "finish";
 
-    private WebDriver webDriver;
-    private WebDriverWait wait;
-
     @FindBy(css = BUTTON_CSS)
     private WebElement startButton;
 
     public DynamicPage(WebDriver webDriver, int timeoutSeconds) {
-        this.webDriver = webDriver;
-        this.wait = new WebDriverWait(webDriver, Duration.ofSeconds(timeoutSeconds));
+        super(webDriver, timeoutSeconds);
         PageFactory.initElements(webDriver, this);
     }
 

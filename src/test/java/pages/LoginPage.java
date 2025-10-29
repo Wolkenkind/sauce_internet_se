@@ -6,12 +6,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pages.common.BasePage;
 
 import java.time.Duration;
 
-public class LoginPage {
-
-    private WebDriver driver;
+public class LoginPage extends BasePage {
 
     @FindBy(id = "username")
     private WebElement usernameField;
@@ -26,8 +25,8 @@ public class LoginPage {
     private WebElement flashMessage;
 
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        super(driver);
+        PageFactory.initElements(this.driver, this);
     }
 
     public void setUsername(String username) {
