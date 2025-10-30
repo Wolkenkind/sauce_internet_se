@@ -1,12 +1,14 @@
 package pages;
 
-import exceptions.ElementNotFound;
-import exceptions.SelectorType;
+import exceptions.ElementNotFoundException;
+import pages.common.SelectorType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pages.common.WaitingPage;
+
+import static exceptions.ComponentConstants.ALERTS;
 
 public class AlertsPage extends WaitingPage {
     public static final String ALERT_BUTTON_XPATH = "//*[@id='content']//button[contains(.,'Alert')]";
@@ -32,8 +34,8 @@ public class AlertsPage extends WaitingPage {
 
     public String getResultText() {
         if (resultElement == null) {
-            throw new ElementNotFound(
-                    "alerts",
+            throw new ElementNotFoundException(
+                    ALERTS,
                     "resultElement",
                     SelectorType.ID,
                     RESULT_ID,

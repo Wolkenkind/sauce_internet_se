@@ -1,4 +1,4 @@
-package exceptions;
+package pages.common;
 
 public enum SelectorType {
     CSS,
