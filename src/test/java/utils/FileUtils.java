@@ -32,7 +32,15 @@ public class FileUtils {
     }
 
     public static void cleanupDownloads() {
-        File file = new File(getDownloadPath());
+        cleanupFiles(getDownloadPath());
+    }
+
+    public static void cleanupTestData() {
+        cleanupFiles(getProjectTestDataPath());
+    }
+
+    public static void cleanupFiles(String path) {
+        File file = new File(path);
         if (file.exists()) {
             File[] children = file.listFiles();
             if (children != null) {
