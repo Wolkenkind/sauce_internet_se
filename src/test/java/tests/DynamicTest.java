@@ -13,13 +13,14 @@ public class DynamicTest extends BaseTest {
     private static final String LINK_TEXT = "Dynamic Loading";
     private static final String LINK2_TEXT = "Example 1: Element on page that is hidden";
     private static final String LINK3_TEXT = "Example 2: Element rendered after the fact";
+    private static final String START_BUTTON_CSS = "#start button";
     private static final int TIMEOUT_SECONDS = 7;
 
 
     private void navigateAndWait(String linkText) {
         driver.findElement(By.linkText(LINK_TEXT)).click();
         driver.findElement(By.linkText(linkText)).click();
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("#start button")));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(START_BUTTON_CSS)));
 
         waitForPageToLoad();
     }

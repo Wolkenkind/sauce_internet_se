@@ -32,14 +32,14 @@ public class FileUtils {
     }
 
     public static void cleanupDownloads() {
-        cleanupFiles(getDownloadPath());
+        cleanupFiles(getDownloadPath(), false);
     }
 
     public static void cleanupTestData() {
-        cleanupFiles(getProjectTestDataPath());
+        cleanupFiles(getProjectTestDataPath(), false);
     }
 
-    public static void cleanupFiles(String path) {
+    public static void cleanupFiles(String path, boolean deleteSelf) {
         File file = new File(path);
         if (file.exists()) {
             File[] children = file.listFiles();
@@ -49,12 +49,14 @@ public class FileUtils {
                 }
             }
 
-            try {
-                if(!file.delete()) {
-                    System.out.println("Could not delete '" + file.getAbsolutePath() + "'");
+            if (deleteSelf) {
+                try {
+                    if(!file.delete()) {
+                        System.out.println("Could not delete '" + file.getAbsolutePath() + "'");
+                    }
+                } catch (SecurityException e) {
+                    System.out.println("Could not delete '" + file.getAbsolutePath() + "': " + e.getMessage());
                 }
-            } catch (SecurityException e) {
-                System.out.println("Could not delete '" + file.getAbsolutePath() + "': " + e.getMessage());
             }
         }
     }

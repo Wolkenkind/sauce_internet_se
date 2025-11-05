@@ -56,7 +56,7 @@ public class FileUploadTest extends BaseTest {
 
     @ParameterizedTest
     @MethodSource("prepareAndGetUploadFilesCases")
-    public void testUploadFiles(List<String> files) throws IOException {
+    public void testUploadFiles(List<String> files) {
         FileUploadPage page = new FileUploadPage(driver, TIMEOUT_SECONDS);
         StringBuilder inputStringBuilder = new StringBuilder();
         for (String file: files) {
